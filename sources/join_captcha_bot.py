@@ -90,7 +90,8 @@ connections = {}
 th_0 = None
 th_1 = None
 force_exit = False
-
+banned_words = ['random']
+wel_msg = 'Welcome to the group\! {}'
 # Create Captcha Generator object of specified size (2 -> 640x360)
 CaptchaGen = CaptchaGenerator(2)
 
@@ -1019,6 +1020,11 @@ def msg_nocmd(update: Update, context: CallbackContext):
     bot = context.bot
     # Get message data
     update_msg = getattr(update, "message", None)
+    for word in banned_words:
+        if word in update_msg.text: 
+            update.message.delete()
+            return
+
     if update_msg is None:
         update_msg = getattr(update, "edited_message", None)
     if update_msg is None:
@@ -1028,9 +1034,9 @@ def msg_nocmd(update: Update, context: CallbackContext):
             if chat is not None:
                 return
         print("Warning: Received an unexpected no-command update.")
-        print(update)
         return
     chat_id = getattr(update_msg, "chat_id", None)
+    print(chat_id)
     if chat_id is None:
         print("Warning: Received an unexpected no-command update without chat id.")
         print(update)
@@ -1176,11 +1182,12 @@ def msg_nocmd(update: Update, context: CallbackContext):
         else:
             tlg_send_msg(bot, chat_id, bot_msg)
         # Check for custom welcome message and send it
-        welcome_msg = get_chat_config(chat_id, "Welcome_Msg").format(escape_markdown(user_name, 2))
+        # welcome_msg = get_chat_config(chat_id, "Welcome_Msg").format(escape_markdown(user_name, 2))
+        welcome_msg = wel_msg.format(user_name)
         if welcome_msg != "-":
             # Send the message as Markdown
             rm_welcome_msg = get_chat_config(chat_id, "Rm_Welcome_Msg")
-            if rm_welcome_msg:
+            if False:
                 welcome_msg_time = get_chat_config(chat_id, "Welcome_Time")
                 sent_result = tlg_send_selfdestruct_msg_in(bot, chat_id, welcome_msg,
                         welcome_msg_time, parse_mode="MARKDOWN")

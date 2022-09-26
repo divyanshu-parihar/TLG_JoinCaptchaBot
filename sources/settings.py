@@ -18,10 +18,10 @@ SETTINGS = {
     "CAPTCHABOT_PRIVATE": False,
 
     # Bot Token (get it from @BotFather)
-    "CAPTCHABOT_TOKEN": "XXXXXXXXX:XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    "CAPTCHABOT_TOKEN": "5742240543:AAFO7tGjUP9nzs-JikLdIixdC3PPj2vqg8I",
 
     # Bot Owner (i.e. "@JoseTLG" or "123456789")
-    "CAPTCHABOT_OWNER": "XXXXXXXXX",
+    "CAPTCHABOT_OWNER": "@divvy7",
 
     # Bot Webhook Host addres (keep in None for Polling or set to a
     # valid address for Webhook)
@@ -79,10 +79,10 @@ SETTINGS = {
     "CAPTCHABOT_INIT_CAPTCHA_CHARS_MODE": "nums",
 
     # Initial remove result messages cgroup onfiguration
-    "CAPTCHABOT_INIT_RM_RESULT_MSG": True,
+    "CAPTCHABOT_INIT_RM_RESULT_MSG": False,
 
     # Initial remove welcome message group configuration
-    "CAPTCHABOT_INIT_RM_WELCOME_MSG": True,
+    "CAPTCHABOT_INIT_RM_WELCOME_MSG": False,
 
     # Maximum number of allowed captcha Poll options
     "CAPTCHABOT_MAX_POLL_OPTIONS": 6,

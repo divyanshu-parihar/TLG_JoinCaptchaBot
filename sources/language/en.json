@@ -114,7 +114,7 @@
         "Hello {}, welcome to {}. Please press the button below to verify that you are not a robot. If you don't do this in {}, you will be automatically kicked out of the group.",
 
     "CAPTCHA_SOLVED":
-        "Captcha solved, user verified.\nWelcome to the group, {}",
+        "Captcha Verified , User Verified! {}",
 
     "CAPTCHA_INCORRECT_0":
         "That is not the correct code. Try again...",
