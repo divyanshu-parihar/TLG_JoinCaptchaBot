@@ -105,19 +105,19 @@
         "Ignore list of the chat is empty.",
 
     "NEW_USER_IMG_CAPTION":
-        "Hello {}, welcome to {}. Please write a message with the numbers and/or letters that appear in this image to verify that you are a human. If you don't solve this captcha in {}, you will be automatically kicked out of the group.",
+        "Hi {}, welcome to {} Telegram Group. I'm Merle, your cute little group butler. Before I proceed to let you in, it is my duty to sniff around and ensure you are not a bot. Pls type out the 4 numbers within the next 60 seconds or I will kick your butt out. 🐭",
 
     "NEW_USER_MATH_CAPTION":
-        "Hello {}, welcome to {}. Please write a message with the result of this math equation to verify that you are a human. If you don't solve this captcha in {}, you will be automatically kicked out of the group.",
+        "Hi {}, welcome to {} Telegram Group. I'm Merle, your cute little group butler. Before I proceed to let you in, it is my duty to sniff around and ensure you are not a bot. Pls type out the 4 numbers within the next 60 seconds or I will kick your butt out. 🐭",
 
     "NEW_USER_BUTTON_MODE":
         "Hello {}, welcome to {}. Please press the button below to verify that you are not a robot. If you don't do this in {}, you will be automatically kicked out of the group.",
 
     "CAPTCHA_SOLVED":
-        "Captcha Verified , User Verified! {}",
+        "Code is correct! So you are not a bot. Welcome {} 🐭",
 
     "CAPTCHA_INCORRECT_0":
-        "That is not the correct code. Try again...",
+        "Hey hey, this is not the correct code. Try again...! 🐭 Refresh the code if you have poor vision like me...",
 
     "CAPTCHA_INCORRECT_1":
         "That is not the correct number. Check closely, the captcha has 4 numbers...",
@@ -180,7 +180,7 @@
         "Configuration change, welcome messages won't be removed.",
 
     "OTHER_CAPTCHA_BTN_TEXT":
-        "Other Captcha",
+        "Refresh Code",
 
     "PASS_BTN_TEXT":
         "I'm not a Bot",

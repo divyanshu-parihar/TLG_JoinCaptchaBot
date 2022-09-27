@@ -90,8 +90,9 @@ connections = {}
 th_0 = None
 th_1 = None
 force_exit = False
-banned_words = ['random']
-wel_msg = 'Welcome to the group\! {}'
+banned_words = ['fuck', 'shit you', 'shit', 'bitch', 'ass', 'bullshit', 'idiot', 'stupid', 'moron', 'dumbass', 'loser', 'fucker']
+msg_banned = 'Hey {}, I caught you! Mind your manners ok! We don\'t tolerate the use of {} in our community and so we don\'t welcome you here! \n{} is booted out. Bye! 🐭'
+wel_msg = 'Hi {}\! A warm welcome to SG Rodents\.\n I\'m Merle, your cute little group butler with amazing ability\. We are a group of like\-minded rodent lovers looking to share information, joy and adoption of small animals\. 🐭\n Pls be mindful that we don\'t welcome BYB and overpriced adoption fees\. I will be monitoring your posts and will remove you if you break any rules ok\.'
 # Create Captcha Generator object of specified size (2 -> 640x360)
 CaptchaGen = CaptchaGenerator(2)
 
@@ -861,14 +862,14 @@ def chat_member_status_change(update: Update, context: CallbackContext):
                     captcha["equation_result"]))
             # Note: Img caption must be <= 1024 chars
             img_caption = TEXT[lang]["NEW_USER_MATH_CAPTION"].format( \
-                    user_name_lrm, chat_title, timeout_str)
+                    user_name_lrm, chat_title)
         else:
             captcha_num = captcha["characters"]
             printts("[{}] Sending captcha message to {}: {}...".format( \
                     chat_id, join_user_name, captcha_num))
             # Note: Img caption must be <= 1024 chars
             img_caption = TEXT[lang]["NEW_USER_IMG_CAPTION"].format( \
-                    user_name_lrm, chat_title, timeout_str)
+                    user_name_lrm, chat_title)
         # Prepare inline keyboard button to let user request another catcha
         keyboard = [[InlineKeyboardButton(TEXT[lang]["OTHER_CAPTCHA_BTN_TEXT"],
                 callback_data="image_captcha {}".format(join_user_id))]]
@@ -1020,9 +1021,17 @@ def msg_nocmd(update: Update, context: CallbackContext):
     bot = context.bot
     # Get message data
     update_msg = getattr(update, "message", None)
+    chat_id = getattr(update_msg, "chat_id", None)
+    user_id = update_msg.from_user.id
+    username = update_msg.from_user.username
+    # print(update_msg.from.id)
+    print('deleting')
     for word in banned_words:
         if word in update_msg.text: 
             update.message.delete()
+            msg_after_banned = msg_banned.format('@'+username,word,'@'+username)
+            tlg_kick_user(bot, chat_id, user_id)
+            tlg_send_msg(bot,chat_id,msg_after_banned)
             return
 
     if update_msg is None:
@@ -1183,6 +1192,7 @@ def msg_nocmd(update: Update, context: CallbackContext):
             tlg_send_msg(bot, chat_id, bot_msg)
         # Check for custom welcome message and send it
         # welcome_msg = get_chat_config(chat_id, "Welcome_Msg").format(escape_markdown(user_name, 2))
+        print('Welcome Message')
         welcome_msg = wel_msg.format(user_name)
         if welcome_msg != "-":
             # Send the message as Markdown
@@ -1442,14 +1452,14 @@ def button_request_captcha(bot, query):
         captcha_num = captcha["equation_result"]
         printts("[{}] Sending new captcha msg: {} = {}...".format(chat_id, \
                 captcha["equation_str"], captcha_num))
-        img_caption = TEXT[lang]["NEW_USER_MATH_CAPTION"].format(user_name, \
-            chat_title, timeout_str)
+        img_caption = TEXT[lang]["NEW_USER_MATH_CAPTION"].format( \
+                    user_name_lrm, chat_title)
     else:
         captcha_num = captcha["characters"]
         printts("[{}] Sending new captcha msg: {}...".format( \
                 chat_id, captcha_num))
         img_caption = TEXT[lang]["NEW_USER_IMG_CAPTION"].format(user_name, \
-            chat_title, timeout_str)
+            chat_title)
     input_media = InputMediaPhoto(media=open(captcha["image"], "rb"), \
             caption=img_caption)
     edit_result = tlg_edit_msg_media(bot, chat_id, msg_id, media=input_media, \
