@@ -92,7 +92,7 @@ th_1 = None
 force_exit = False
 banned_words = ['fuck', 'shit you', 'shit', 'bitch', 'ass', 'bullshit', 'idiot', 'stupid', 'moron', 'dumbass', 'loser', 'fucker']
 msg_banned = 'Hey {}, I caught you! Mind your manners ok! We don\'t tolerate the use of {} in our community and so we don\'t welcome you here! \n{} is booted out. Bye! 🐭'
-wel_msg = 'Hi {}\! A warm welcome to SG Rodents\.\n I\'m Merle, your cute little group butler with amazing ability\. We are a group of like\-minded rodent lovers looking to share information, joy and adoption of small animals\. 🐭\n Pls be mindful that we don\'t welcome BYB and overpriced adoption fees\. I will be monitoring your posts and will remove you if you break any rules ok\.'
+wel_msg = 'Hi {}\! A warm welcome to SG Rodents\.\nI\'m Merle,your cute little group butler with amazing ability\. We are a group of like\-minded rodent lovers looking to share information, joy and adoption of small animals\.🐭\nPls be mindful that we don\'t welcome BYB and overpriced adoption fees\. I will be monitoring your posts and will remove you if you break any rules ok\.'
 # Create Captcha Generator object of specified size (2 -> 640x360)
 CaptchaGen = CaptchaGenerator(2)
 
